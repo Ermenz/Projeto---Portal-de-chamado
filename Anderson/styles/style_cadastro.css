@@ -12,7 +12,7 @@ body{
 }
 
 .main_content{
-    background-color: rgb(41, 16, 16);
+    background: linear-gradient(to right, rgb(104, 74, 74), rgb(41, 16, 16));
     border: 2px solid white;
     border-radius: 12px;
     display: flex;
@@ -29,4 +29,13 @@ body{
     width: 280px;
     border-radius: 8px;
     height: 15px;
+    padding-left: 18px;
+}
+
+.btn_save{
+    background-color: rgb(136, 185, 0);
+    width: 20%;
+    border-radius: 8px;
+    border: 2px double rgb(143, 0, 0);
+    
 }

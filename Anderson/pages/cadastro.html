@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style_cadastro.css">
+    <link rel="stylesheet" href="../styles/style_cadastro.css">
     <title>Cadastre-se</title>
 </head>
 <body>
@@ -12,21 +12,19 @@
 
         <div class="main_content">
     
-            <input type="text" name="" class="inp_register" id="" placeholder="Nome">
-            <input type="text" name="" class="inp_register" id="" placeholder="Email">
-            <input type="text" name="" class="inp_register" id="" placeholder="Senha">
-            <input type="text" name="" class="inp_register" id="" placeholder="Confirmar senha">
+            <input type="text" name="nome" class="inp_register" id="name" placeholder="Nome">
+            <input type="text" name="email" class="inp_register" id="email" placeholder="Email">
+            <input type="password" name="senha" class="inp_register" id="password" placeholder="Senha">
+            <input type="password" name="confirmaSenha" class="inp_register" id="confirm_password" placeholder="Confirmar senha">
             <div>
-                <input type="radio" name="" id=""> Administrador
-                <input type="radio" name="" id=""> Técnico
+                <input type="radio" name="choice" id="adm"> Administrador
+                <input type="radio" name="choice" id="tec"> Técnico
             </div>
             <button class="btn_save" id="btn_save">Salvar</button>
 
         </div>
 
     </div>
-    
-    <input type="radio" name="" id="">Administrador
-    <input type="radio" name="" id="">Técnico
+    <script src="../services/cadastro.js"></script>
 </body>
 </html>
