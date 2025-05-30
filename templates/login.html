@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style_login.css') }}" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <div class="main_content">
+            <form method="POST" action="{{ url_for('login_post') }}" id="formLogin">
+                <input class="inp_login" type="email" name="email" id="inp_email" placeholder="Email" required />
+                <input class="inp_login" type="password" name="password" id="inp_senha" placeholder="Senha" required />
+                <div class="checkboxs">
+                    <input type="radio" name="tipo_usuario" id="tec" value="2">Técnico
+                    <input type="radio" name="tipo_usuario" id="adm" value="1">Administrador
+                    <input type="radio" name="tipo_usuario" id="usu" value="3" checked>Usuário
+                </div>
+                <button id="btn_entrar" class="btn_entrar" type="submit">Entrar</button>
+            </form>
+            <span>Não tem uma conta ainda?</span>
+            <a href="{{ url_for('register') }}">Cadastre-se</a>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='services/main.js') }}"></script>
+</body>
+</html>

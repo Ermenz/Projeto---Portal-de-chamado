@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal de Chamado</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}" />
+</head>
+<body>
+  <header>
+    <h1>Portal de Chamado</h1>
+    <p>Bem-vindo, {{ email }} | <a href="{{ url_for('logout') }}">Sair</a></p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Adicionar Chamado</h2>
+      <form id="chamadoForm" method="POST" action="{{ url_for('dashboard') }}">
+        <input type="text" name="titulo" placeholder="Título do chamado" required />
+        <textarea name="descricao" placeholder="Descrição" required></textarea>
+        <select name="prioridade" required>
+          <option value="">Selecione a prioridade</option>
+          <option value="verde">Não urgente</option>
+          <option value="amarelo">Intermediário</option>
+          <option value="vermelho">Urgente</option>
+        </select>
+        <button type="submit">Adicionar</button>
+      </form>
+    </section>
+  
+    <div class="container" id="chamadoContainer">
+      {% if chamados %}
+        {% for chamado in chamados %}
+          <div class="chamado {{ chamado['prioridade'] }}">
+            <h3>{{ chamado['titulo'] }}</h3>
+            <p>{{ chamado['descricao'] }}</p>
+            <span class="prioridade">{{ chamado['prioridade'] }}</span>
+            <small>{{ chamado['data_criacao'] }}</small>
+          </div>
+        {% endfor %}
+      {% else %}
+        <p>Nenhum chamado cadastrado.</p>
+      {% endif %}
+    </div>
+  </main>
+</body>
+</html>

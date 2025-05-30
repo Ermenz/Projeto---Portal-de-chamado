@@ -1,0 +1,32 @@
+body{
+    color: white;
+}
+.container{
+    background: linear-gradient(to top, black, rgb(161, 161, 161)); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+
+}
+
+.main_content{
+    background-color: rgb(41, 16, 16);
+    border: 2px solid white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    height: 45%;
+    width: 40%;
+    
+}
+
+.inp_register{
+    width: 280px;
+    border-radius: 8px;
+    height: 15px;
+}
