@@ -2,27 +2,27 @@ const {db} = require('../database/db.js');
 const bcrypt = require('bcrypt');
 
 exports.login = (req, res) => {
-    const {email, senha} = req.body;
+    const {inp_email, inp_senha} = req.body;
 
     console.log("req.body: " , req.body);
     
-    if(!email || !senha){
-        return res.status(400).json({ mensagem: "Email e senha são obrigatórios." });
+    if(!inp_email || !inp_senha){
+        return res.status(400).json({ mensagem: "Email e senha são obrigatórios. Digite-os Por favor!" });
     }
 
     const query = 'SELECT * FROM usuario WHERE email = ?';
 
-    db.get(query, [email], (err, row)=> {
+    db.get(query, [inp_email], (err, row)=> {
         if (err) {
             console.error(err);
             return res.status(500).json({ mensagem: "Erro interno do servidor." });
         }
 
         if (!row){
-            return res.status(401).json({ mensagem: "Email ou senha inválidos."});
+            return res.status(401).json({ mensagem: "Email ou senha inválidos. Email ou senha não existem"});
         }
 
-        bcrypt.compare(senha, row.senha, (err, result) => {
+        bcrypt.compare(inp_senha, row.senha, (err, result) => {
             if (err) {
                 console.error(err);
                 return res.status(500).json({ mensagem: "Erro interno do servidor." });
